@@ -8,7 +8,7 @@ import mongoose from 'mongoose';
    */
 export default async (mongooseConn, collectionName) => {
   const Model = mongooseConn.model(collectionName,
-    new mongoose.Schema({}, { collection: collectionName })
+    new mongoose.Schema({ _id: String }, { collection: collectionName })
   );
   const result = await Model.find({});
   return result.map((r) => {
