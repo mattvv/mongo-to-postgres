@@ -45,7 +45,7 @@ export default async ({ knex, collections, tableName, rows }) => {
     }
 
     // save and then delete Mongo _id
-    const oldId = currentRow._id.toString();
+    const oldId = (currentRow._id || currentRow.objectId).toString();
     delete currentRow._id;
 
     // remove arrays from row object
