@@ -57,7 +57,7 @@ export default async ({ knex, collections, tableName, rows }) => {
     }
     // insert current row
     const newId = await knex(tableName)
-      .returning('id')
+      .returning('objectId')
       .insert(rowCopy);
 
     // save id mapping
